@@ -1,38 +1,100 @@
-.App {
-  text-align: center;
+body{
+    margin: 0;
+    background: hsl(207, 26%, 17%);
+    color: hsl(0, 0%, 100%);
+    font-family: 'Roboto', sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+
+/* Top bar  */
+.top-bar{
+    height: 7.5vh;
+    width: 100%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+
+    background: hsl(209, 23%, 22%);
+}
+.title{
+    margin: 40px;
+    float: left;
+    font-size: 25px;
+    font-weight: 500;
+}
+.theme-switch{
+    margin: 40px;
+    float: right;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+
+    font-size: 15px;
+    font-weight: 300;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
+/* middle bar */
+/* left side */
+.middle-bar{
+    width: 100%;
+    height: 200px;
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
+.search-bar{
+    margin: 40px;
+    
+    width: 400px;
+    height: 65px;
 
-.App-link {
-  color: #61dafb;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    border-radius: 5px;
+    background: hsl(209, 23%, 22%);
 }
+.input-bar{
+    color: white;
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+    width: 90%;
+    height: 100%;
+
+    background: none;
+    outline-width: 0;
+    border: none;
+
+    font-size: 15px;
+}
+.search-icon{
+    height: 20px;
+    width: 20px;
+    margin: 20px;
+}
+/* right side */
+.region-selector{
+    margin: 40px;
+    
+    width: 300px;
+    height: 65px;
+
+    display: flex;    
+    align-items: center;
+    justify-content: space-between;
+    text-align: left;
+
+    border-radius: 5px;
+    background: hsl(209, 23%, 22%);
+}
+.region{
+    margin: 25px;
+}
+.arrow{
+    margin: 25px;
 }
