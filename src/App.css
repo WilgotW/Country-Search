@@ -91,6 +91,12 @@ body{
 
     border-radius: 5px;
     background: hsl(209, 23%, 22%);
+
+    user-select: none;
+    transition: 0.2s;
+}
+.region-selector:hover{
+    background: hsl(209, 23%, 28%);
 }
 .region{
     margin: 25px;
@@ -98,3 +104,5 @@ body{
 .arrow{
     margin: 25px;
 }
+
+/* Countries */
