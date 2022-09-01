@@ -1,29 +1,82 @@
 import React from 'react';
 import './App.css';
-import CountryList from './components/CountryList';
-import MiddleBar from './components/MiddleBar';
-import TopBar from './components/TopBar';
-
 import { useState, useEffect} from 'react';
 
+import {AiOutlineSearch} from 'react-icons/ai'
+import ThemeSwitch from './components/ThemeSwitch'
+import Item from './components/Item'
+import RegionSelector from './components/RegionSelector'
+
 function App() {
-  const [data, setData] = useState([]);
+  const [countries, setCountries] = useState([]);
+  const [search, setSearch] = useState('');
+  const [items, setItems] = useState([]);
+
+ 
+
+  const changeSearch = e => { 
+    setSearch(e.target.value)
+  }
 
   const getData = async () => {
-    let response = await fetch('https://restcountries.com/v3.1/all')
-    setData(await response.json())
-    console.log(data)
+    let res = await fetch('https://restcountries.com/v3.1/all')
+    setCountries(await res.json());
   }
 
   useEffect(() => {
     getData();
-  }, [])
+  }, []);
+  
+ 
+  useEffect(() => {
+    console.log(countries)
+  }, [countries]);
+
+  
+  const searchForCountry = e => {
+    e.preventDefault();
+    
+    console.log("Searching for: " + search)
+    
+    let newArr = [...countries]
+
+    const filteredCountries = newArr.filter(country => country.name.common.includes(search))
+
+    setCountries(filteredCountries);
+
+    
+  }
 
   return (
     <div className="App">
-      <TopBar></TopBar>
-      <MiddleBar></MiddleBar>
-      <CountryList></CountryList>
+      
+      {/* Top part */}
+      <div className='top-bar'>
+        <div className='title'>Where in the world?</div>
+        <ThemeSwitch></ThemeSwitch>
+      </div>
+
+      {/* middle part */}
+      <div className='middle-bar'>
+        <div className='search-bar'>
+          <AiOutlineSearch className='search-icon' onClick={searchForCountry}></AiOutlineSearch>
+          <input 
+            onChange={changeSearch}
+            value={search}
+            type="text" 
+            className='input-bar' 
+            placeholder='Search For a country...' 
+          />
+        </div>
+        <RegionSelector></RegionSelector>
+      </div>
+      {/* country list */}
+      <div className='center'>
+        <div className='country-list'>
+            <Item countries={countries}></Item>
+        </div>
+    </div>
+      
     </div>
   );
 }
