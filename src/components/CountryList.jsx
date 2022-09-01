@@ -1,10 +1,21 @@
 import React from 'react'
+import Item from './Item'
 
 function CountryList() {
   return (
-    <div className='country-list'>
-        <div className='item'></div>
+    <div className='center'>
+        <div className='country-list'>
+            <Item></Item>
+            <Item></Item>
+            <Item></Item>
+            <Item></Item>
+            <Item></Item>
+            <Item></Item>
+            <Item></Item>
+            <Item></Item>
+        </div>
     </div>
+
   )
 }
 

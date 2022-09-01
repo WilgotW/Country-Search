@@ -4,7 +4,11 @@ body{
     color: hsl(0, 0%, 100%);
     font-family: 'Roboto', sans-serif;
 }
-
+.center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 /* Top bar  */
 .top-bar{
@@ -106,3 +110,26 @@ body{
 }
 
 /* Countries */
+.country-list{
+    width: fit-content;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 50px;
+}
+.item{
+    width: 250px;
+    height: 300px;
+    background: hsl(209, 23%, 22%);
+    border-radius: 5px;
+    overflow: hidden;
+
+    text-align: center;
+}
+.country-image{
+    background: orange;
+    height: 150px;
+    width: 100%;
+}
+.country-title{
+    
+}
