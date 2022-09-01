@@ -10,9 +10,6 @@ import RegionSelector from './components/RegionSelector'
 function App() {
   const [countries, setCountries] = useState([]);
   const [search, setSearch] = useState('');
-  const [items, setItems] = useState([]);
-
- 
 
   const changeSearch = e => { 
     setSearch(e.target.value)
@@ -32,20 +29,15 @@ function App() {
     console.log(countries)
   }, [countries]);
 
-  
-  const searchForCountry = e => {
-    e.preventDefault();
-    
-    console.log("Searching for: " + search)
+  const searchForCountry = async() => {
+    await getData();
+    console.log("Searching for: " + search);
     
     let newArr = [...countries]
-
-    const filteredCountries = newArr.filter(country => country.name.common.includes(search))
-
+    let filteredCountries = newArr.filter(country => country.name.common.includes(search))
     setCountries(filteredCountries);
-
-    
   }
+  
 
   return (
     <div className="App">
