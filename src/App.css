@@ -124,6 +124,12 @@ body{
     overflow: hidden;
 
     text-align: center;
+
+    transition: 0.2s;
+}
+.item:hover{
+    transform: scaleY(1.1) scaleX(1.1)
+   
 }
 .country-image{
 
