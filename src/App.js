@@ -14,6 +14,7 @@ function App() {
   const [showDropDown, setShowDropDown] = useState(false);
   const [continentFilter, setContinentFilter] = useState("");
   const [regionSelectorText, setRegionSelectorText] = useState("");
+ 
   const dropDownToggle = () => {
     setShowDropDown(current => !current);
   }
@@ -36,7 +37,10 @@ function App() {
   //   console.log(countries);
   // }, [allCountries], [countries]);
 
-
+  useEffect(() => {
+    searchForCountry() 
+  }, [continentFilter])
+  
   const searchForCountry = () => {
     let all = allCountries;
     setCountries(all);
@@ -47,7 +51,7 @@ function App() {
       
     }
     let filteredCountries = newArr.filter(country => { 
-      if(continentFilter != ""){
+      if(continentFilter !== ""){
         return country.name.common.includes(search) && country.region == continentFilter; 
       }else{
         return country.name.common.includes(search)
@@ -62,15 +66,12 @@ function App() {
       searchForCountry();
     }
   })
-
+  
   const selectContinent = continent => {
     setRegionSelectorText(continent);
-    setContinentFilter(continent);
-    
-    searchForCountry();
+    setContinentFilter(continent); 
     
   }
-
   return (
     <div className="App">
       {/* Top part */}
