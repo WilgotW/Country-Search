@@ -33,12 +33,22 @@ body{
     float: right;
 
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+
     gap: 10px;
+
+    width: 100px;
+    height: 25px;
 
     font-size: 15px;
     font-weight: 300;
+}
+.theme-switch:hover{
+    cursor: pointer;
+    opacity: 0.5;
+    background: white;
 }
 
 /* middle bar */
@@ -82,6 +92,11 @@ body{
     height: 20px;
     width: 20px;
     margin: 20px;
+    transition: 0.1s;
+}
+.search-icon:hover{
+    cursor: pointer;
+    transform: scaleY(1.25) scaleX(1.25)
 }
 /* right side */
 .theRegion{
@@ -92,6 +107,7 @@ body{
     height: 200px;
 }
 .region-selector{
+    
     text-align: center;
     
     margin-right: 40px;
@@ -112,8 +128,10 @@ body{
 }
 .region-selector:hover{
     background: hsl(209, 23%, 28%);
+    cursor: pointer;
 }
 .options{
+    
     opacity: 100;
     margin-top: 5px;
     border-radius: 5px;
@@ -123,6 +141,9 @@ body{
     z-index: 10;
     
 }
+.options:hover{
+    cursor: pointer;
+}
 .positioning-right{
     margin-right: 40px;
     display: flex;
@@ -130,6 +151,7 @@ body{
     align-items: center;
 }
 .con{
+    user-select: none;
     margin-left: 20px;
 }
 .continent{

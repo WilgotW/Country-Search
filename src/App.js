@@ -11,11 +11,10 @@ function App() {
   const [allCountries, setAllCountries] = useState([]);
   const [countries, setCountries] = useState([]);
   const [search, setSearch] = useState('');
-
   const [showDropDown, setShowDropDown] = useState(false);
-
-  const dropDown = () => {
-    console.log("hh");
+  const [continentFilter, setContinentFilter] = useState("");
+  const [regionSelectorText, setRegionSelectorText] = useState("");
+  const dropDownToggle = () => {
     setShowDropDown(current => !current);
   }
 
@@ -32,27 +31,45 @@ function App() {
     getData();
   }, []);
   
-  useEffect(() => {
-    console.log(allCountries)
-    console.log(countries);
-  }, [allCountries], [countries]);
+  // useEffect(() => {
+  //   console.log(allCountries)
+  //   console.log(countries);
+  // }, [allCountries], [countries]);
 
+
+  const searchForCountry = () => {
+    let all = allCountries;
+    setCountries(all);
+    console.log("Searching for: " + search + " in " + continentFilter);
+  
+    let newArr = [...all]
+    if(continentFilter != ""){
+      
+    }
+    let filteredCountries = newArr.filter(country => { 
+      if(continentFilter != ""){
+        return country.name.common.includes(search) && country.region == continentFilter; 
+      }else{
+        return country.name.common.includes(search)
+      }
+    })
+    
+    setCountries(filteredCountries);
+  }
+  
   window.addEventListener('keydown', e => {
     if(e.keyCode == 13) {
       searchForCountry();
     }
   })
-  
-  const searchForCountry = async() => {
-    let all = allCountries;
-    setCountries(all);
-    console.log("Searching for: " + search);
-  
-    let newArr = [...all]
-    let filteredCountries = newArr.filter(country => country.name.common.includes(search))
-    setCountries(filteredCountries);
+
+  const selectContinent = continent => {
+    setRegionSelectorText(continent);
+    setContinentFilter(continent);
+    
+    searchForCountry();
+    
   }
-  
 
   return (
     <div className="App">
@@ -75,20 +92,29 @@ function App() {
           />
         </div>
         
-        <div onClick={dropDown}>
-          <RegionSelector ></RegionSelector>
+        <div onClick={dropDownToggle}>
+          <RegionSelector text={regionSelectorText}></RegionSelector>
         </div>
           
         
       </div>
       <div className='positioning-right'>
         <div className='options' style={{opacity: showDropDown ? '100' : '0'}}>
-          <div className='continent'><p className='con'>Europe</p></div>
-          <div className='continent'><p className='con'>Asia</p></div>
-          <div className='continent'><p className='con'>Africa</p></div>
-          <div className='continent'><p className='con'>North America</p></div>
-          <div className='continent'><p className='con'>South America</p></div>
-          <div className='continent'><p className='con'>Oceiania</p></div>
+          <div className='continent'onClick={() => {
+            dropDownToggle()
+            selectContinent("")}}><p className='con'>All</p></div>
+          <div className='continent'onClick={() => {dropDownToggle() 
+            selectContinent("Europe")}}><p className='con'>Europe</p></div>
+          <div className='continent'onClick={() => {dropDownToggle() 
+            selectContinent("Asia")}}><p className='con'>Asia</p></div>
+          <div className='continent'onClick={() => {dropDownToggle() 
+            selectContinent("Africa")}}><p className='con'>Africa</p></div>
+          <div className='continent'onClick={() => {dropDownToggle()
+            selectContinent("North America")}}><p className='con'>North America</p></div>
+          <div className='continent'onClick={() => {dropDownToggle() 
+            selectContinent("South America")}}><p className='con'>South America</p></div>
+          <div className='continent'onClick={() => {dropDownToggle() 
+            selectContinent("Oceania")}}><p className='con'>Oceania</p></div>
         </div>
       </div>
       

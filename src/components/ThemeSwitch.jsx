@@ -5,7 +5,6 @@ function ThemeSwitch() {
     <div className='theme-switch'>
       <BsFillMoonFill></BsFillMoonFill>
       <div className='theme'>Dark Mode</div>
-      
     </div>
     
   )
