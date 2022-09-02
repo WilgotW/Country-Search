@@ -126,10 +126,21 @@ body{
     text-align: center;
 }
 .country-image{
+
     background: orange;
     height: 150px;
     width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden
 }
-.country-title{
-    
+.image{
+    flex-shrink: 0;
+    min-width: 100%;
+    min-height: 100%
+}
+.country-name{
+    font-size: calc(14px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
 }
