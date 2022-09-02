@@ -12,6 +12,13 @@ function App() {
   const [countries, setCountries] = useState([]);
   const [search, setSearch] = useState('');
 
+  const [showDropDown, setShowDropDown] = useState(false);
+
+  const dropDown = () => {
+    console.log("hh");
+    setShowDropDown(current => !current);
+  }
+
   const changeSearch = e => { 
     setSearch(e.target.value)
   }
@@ -67,26 +74,24 @@ function App() {
             placeholder='Search For a country...' 
           />
         </div>
-        <div className='right-side'>
-          <RegionSelector></RegionSelector>
-
-          <div className='filters'>
-            <div className='options'>
-              <p className='continent'>Europe</p>
-              <p className='continent'>Asia</p>
-              <p className='continent'>Africa</p>
-              <p className='continent'>North America</p>
-              <p className='continent'>South America</p>
-              <p className='continent'>Oceiania</p>
-            </div>
-          </div>
+        
+        <div onClick={dropDown}>
+          <RegionSelector ></RegionSelector>
+        </div>
+          
+        
       </div>
-        
-        
-        
+      <div className='positioning-right'>
+        <div className='options' style={{opacity: showDropDown ? '100' : '0'}}>
+          <div className='continent'><p className='con'>Europe</p></div>
+          <div className='continent'><p className='con'>Asia</p></div>
+          <div className='continent'><p className='con'>Africa</p></div>
+          <div className='continent'><p className='con'>North America</p></div>
+          <div className='continent'><p className='con'>South America</p></div>
+          <div className='continent'><p className='con'>Oceiania</p></div>
+        </div>
       </div>
       
-
       {/* country list */}
       <div className='center'>
         <div className='country-list'>
