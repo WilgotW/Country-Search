@@ -14,7 +14,6 @@ function App() {
 
   const changeSearch = e => { 
     setSearch(e.target.value)
-    // console.log(search);
   }
 
   const getData = async () => {
@@ -26,13 +25,16 @@ function App() {
     getData();
   }, []);
   
-  
   useEffect(() => {
     console.log(allCountries)
-  }, [allCountries]);
-  useEffect(() => {
-    console.log(countries)
-  }, [countries]);
+    console.log(countries);
+  }, [allCountries], [countries]);
+
+  window.addEventListener('keydown', e => {
+    if(e.keyCode == 13) {
+      searchForCountry();
+    }
+  })
 
   const searchForCountry = async() => {
     let all = allCountries;
@@ -47,7 +49,6 @@ function App() {
 
   return (
     <div className="App">
-      
       {/* Top part */}
       <div className='top-bar'>
         <div className='title'>Where in the world?</div>

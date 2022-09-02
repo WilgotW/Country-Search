@@ -1,12 +1,6 @@
 import React from 'react'
 
 function Item({countries}) {
-  // countries.map((country, index) =>
-  //   let flagName = country.;
-  // );
-  
-  // let flag = "https://flagcdn.com/w320/" + flagName + ".png"
-
   return countries.map((country, index) => (
     <div className='item' key={index}>
         <div className='country-image'>
