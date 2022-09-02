@@ -82,8 +82,17 @@ body{
     margin: 20px;
 }
 /* right side */
+.theRegion{
+    background-color: aliceblue;
+    display: block;
+    /* margin: 40px; */
+    width: 300px;
+    height: 200px;
+}
 .region-selector{
-    margin: 40px;
+        /* margin: 40px; */
+
+    text-align: center;
     
     width: 300px;
     height: 65px;
@@ -101,6 +110,22 @@ body{
 }
 .region-selector:hover{
     background: hsl(209, 23%, 28%);
+}
+.filters{
+    width: 100%;
+    display: flex;
+    justify-content: right;
+}
+.options{
+    display: block;
+    /* margin: 40px; */
+    background: yellowgreen;
+    width: 300px;
+    height: fit-content;
+    
+}
+.right-side{
+    display: block;
 }
 .region{
     margin: 25px;

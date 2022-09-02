@@ -35,7 +35,7 @@ function App() {
       searchForCountry();
     }
   })
-
+  
   const searchForCountry = async() => {
     let all = allCountries;
     setCountries(all);
@@ -67,8 +67,26 @@ function App() {
             placeholder='Search For a country...' 
           />
         </div>
-        <RegionSelector></RegionSelector>
+        <div className='right-side'>
+          <RegionSelector></RegionSelector>
+
+          <div className='filters'>
+            <div className='options'>
+              <p className='continent'>Europe</p>
+              <p className='continent'>Asia</p>
+              <p className='continent'>Africa</p>
+              <p className='continent'>North America</p>
+              <p className='continent'>South America</p>
+              <p className='continent'>Oceiania</p>
+            </div>
+          </div>
       </div>
+        
+        
+        
+      </div>
+      
+
       {/* country list */}
       <div className='center'>
         <div className='country-list'>
