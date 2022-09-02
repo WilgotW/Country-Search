@@ -1,8 +1,14 @@
 body{
     margin: 0;
     background: hsl(207, 26%, 17%);
+}
+.App{
+    margin: 0;
+    background: hsl(207, 26%, 17%);
     color: hsl(0, 0%, 100%);
     font-family: 'Roboto', sans-serif;
+    transition: 0.3s;
+    height: 100vh;
 }
 .center{
     display: flex;
@@ -39,7 +45,7 @@ body{
 
     gap: 10px;
 
-    width: 100px;
+    width: 120px;
     height: 25px;
 
     font-size: 15px;
@@ -48,7 +54,7 @@ body{
 .theme-switch:hover{
     cursor: pointer;
     opacity: 0.5;
-    background: white;
+    /* background: white; */
 }
 
 /* middle bar */
@@ -70,7 +76,7 @@ body{
     height: 65px;
 
     display: flex;
-    justify-content: space-between;
+    
     align-items: center;
 
     border-radius: 5px;
@@ -79,7 +85,7 @@ body{
 .input-bar{
     color: white;
 
-    width: 90%;
+    width: 70%;
     height: 100%;
 
     background: none;
@@ -89,6 +95,7 @@ body{
     font-size: 15px;
 }
 .search-icon{
+    color: white;
     height: 20px;
     width: 20px;
     margin: 20px;
@@ -221,7 +228,6 @@ body{
     min-height: 100%
 }
 .country-name{
-    
     font-size: 17px;
 }
 .google-link{

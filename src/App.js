@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import { useState, useEffect} from 'react';
+import {Helmet} from 'react-helmet';
 
 import {AiOutlineSearch} from 'react-icons/ai'
 import ThemeSwitch from './components/ThemeSwitch'
@@ -14,6 +15,24 @@ function App() {
   const [showDropDown, setShowDropDown] = useState(false);
   const [continentFilter, setContinentFilter] = useState("");
   const [regionSelectorText, setRegionSelectorText] = useState("");
+
+  const mainDark = "hsl(207, 26%, 17%)";
+  const secondaryDark = "hsl(209, 23%, 22%)";
+  const textDarkMode = "hsl(0, 0%, 100%)";
+
+  const mainWhite = "hsl(0, 0%, 91%)";
+  const secondaryWhite = "hsl(0, 0%, 96%)";
+  const textWhiteMode = "hsl(0, 0%, 0%)";
+
+  const [toggleDarkMain, setToggleDarkMain] = useState(true);
+  const [toggleDarkSecondary, setToggleDarkSecondary] = useState(true);
+  const [toggleDarkText, setToggleDarkText] = useState(true);
+
+  const switchMode = () =>{
+    (toggleDarkMain == true) ? setToggleDarkMain(false) : setToggleDarkMain(true);
+    (toggleDarkSecondary == true) ? setToggleDarkSecondary(false) : setToggleDarkSecondary(true);
+    (toggleDarkText == true) ? setToggleDarkText(false) : setToggleDarkText(true);
+  }
  
   const dropDownToggle = () => {
     setShowDropDown(current => !current);
@@ -47,9 +66,7 @@ function App() {
     console.log("Searching for: " + search + " in " + continentFilter);
   
     let newArr = [...all]
-    if(continentFilter != ""){
-      
-    }
+
     let filteredCountries = newArr.filter(country => { 
       if(continentFilter !== ""){
         return country.name.common.includes(search) && country.region == continentFilter; 
@@ -70,31 +87,51 @@ function App() {
   const selectContinent = continent => {
     setRegionSelectorText(continent);
     setContinentFilter(continent); 
-    
   }
   return (
-    <div className="App">
+    <div className="App" style={{
+      background: toggleDarkSecondary ? mainDark : mainWhite
+    }}>
+      
+      {/* <Helmet>
+        <style>{'body { background-color: '+ toggleDarkMain ? mainDark : mainWhite + '; }'}</style>
+      </Helmet> */}
       {/* Top part */}
-      <div className='top-bar'>
-        <div className='title'>Where in the world?</div>
-        <ThemeSwitch></ThemeSwitch>
+      <div className='top-bar' style={{
+        background: toggleDarkSecondary ? secondaryDark : secondaryWhite
+      }}>
+        <div className='title' style={{
+          color: toggleDarkText ? textDarkMode : textWhiteMode
+        }}>Where in the world?</div>
+        <div onClick={switchMode}>
+          <ThemeSwitch  toggleDarkTex={toggleDarkText} textDarkMode={textDarkMode} textWhiteMode={textWhiteMode}></ThemeSwitch>
+        </div>
       </div>
 
       {/* middle part */}
       <div className='middle-bar'>
-        <div className='search-bar'>
-          <AiOutlineSearch className='search-icon' onClick={searchForCountry}></AiOutlineSearch>
+        <div className='search-bar' style={{
+          color: toggleDarkText ? textDarkMode : textWhiteMode,
+          background: toggleDarkSecondary ? secondaryDark : secondaryWhite
+        }}>
+          <AiOutlineSearch className='search-icon' onClick={searchForCountry} style={{
+            color: toggleDarkText ? textDarkMode : textWhiteMode
+          }}></AiOutlineSearch>
           <input 
             onChange={changeSearch}
             value={search}
             type="text" 
             className='input-bar' 
             placeholder='Search For a country...' 
+            style={{
+              color: toggleDarkText ? textDarkMode : textWhiteMode
+            }}
           />
+          <p>({countries.length})</p>
         </div>
         
         <div onClick={dropDownToggle}>
-          <RegionSelector text={regionSelectorText}></RegionSelector>
+          <RegionSelector text={regionSelectorText} toggleDarkSec={toggleDarkSecondary} toggleDarkTex={toggleDarkText} secDark={secondaryDark} textDarkMode={textDarkMode} secWhite={secondaryWhite} textWhiteMode={textWhiteMode}></RegionSelector>
         </div>
           
         
@@ -122,7 +159,7 @@ function App() {
       {/* country list */}
       <div className='center'>
         <div className='country-list'>
-            <Item countries={countries}></Item>
+            <Item countries={countries} toggleDarkSec={toggleDarkSecondary} toggleDarkTex={toggleDarkText} secDark={secondaryDark} textDarkMode={textDarkMode} secWhite={secondaryWhite} textWhiteMode={textWhiteMode}></Item>
         </div>
     </div>
       

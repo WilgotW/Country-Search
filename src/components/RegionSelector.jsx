@@ -1,13 +1,19 @@
 import React from 'react'
-import { BsFillCaretDownFill } from "react-icons/bs";
+import { BsArrowUpLeft, BsFillCaretDownFill } from "react-icons/bs";
 
-function RegionSelector({text}) {
+function RegionSelector({text, toggleDarkSec, toggleDarkTex, secDark, textDarkMode, secWhite, textWhiteMode}) {
   return (
-    <div className='region-selector'>
-      <div className='region'>
+    <div className='region-selector' style={{
+      background: toggleDarkSec ? secDark : secWhite
+    }}>
+      <div className='region' style={{
+        color: toggleDarkTex ? textDarkMode : textWhiteMode
+      }}>
         Filter By Region: {text}
       </div>
-      <BsFillCaretDownFill className='arrow'/>
+      <BsFillCaretDownFill className='arrow' style={{
+        color: toggleDarkTex ? textDarkMode : textWhiteMode
+      }}/>
     </div>
   )
 }
