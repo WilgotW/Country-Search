@@ -180,6 +180,9 @@ body{
 }
 
 /* Countries */
+.country-description{
+    font-size: 15px;
+}
 .country-list{
     width: fit-content;
     display: grid;
@@ -218,5 +221,9 @@ body{
     min-height: 100%
 }
 .country-name{
-    font-size: calc(14px + (26 - 14) * ((100vw - 1000px) / (1600 - 300)));
+    
+    font-size: 17px;
+}
+.google-link{
+    color: white;
 }

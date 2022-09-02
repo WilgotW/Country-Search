@@ -40,7 +40,7 @@ function App() {
   useEffect(() => {
     searchForCountry() 
   }, [continentFilter])
-  
+
   const searchForCountry = () => {
     let all = allCountries;
     setCountries(all);
