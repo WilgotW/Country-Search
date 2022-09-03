@@ -28,7 +28,11 @@ function App() {
   const [toggleDarkSecondary, setToggleDarkSecondary] = useState(true);
   const [toggleDarkText, setToggleDarkText] = useState(true);
 
+  const [backGround, setBackground] = useState("");
+
   const switchMode = () =>{
+    (toggleDarkMain == true) ?  setBackground(mainWhite) : setBackground(mainDark);
+
     (toggleDarkMain == true) ? setToggleDarkMain(false) : setToggleDarkMain(true);
     (toggleDarkSecondary == true) ? setToggleDarkSecondary(false) : setToggleDarkSecondary(true);
     (toggleDarkText == true) ? setToggleDarkText(false) : setToggleDarkText(true);
@@ -61,6 +65,7 @@ function App() {
   }, [continentFilter])
 
   const searchForCountry = () => {
+    
     let all = allCountries;
     setCountries(all);
     console.log("Searching for: " + search + " in " + continentFilter);
@@ -77,26 +82,26 @@ function App() {
     })
     
     setCountries(filteredCountries);
+  
   }
+  
   
   window.addEventListener('keydown', e => {
     if(e.keyCode == 13) {
       searchForCountry();
     }
   })
-  
   const selectContinent = continent => {
     setRegionSelectorText(continent);
     setContinentFilter(continent); 
   }
   return (
-    <div className="App" style={{
-      background: toggleDarkSecondary ? mainDark : mainWhite
-    }}>
-      
-      {/* <Helmet>
-        <style>{'body { background-color: '+ toggleDarkMain ? mainDark : mainWhite + '; }'}</style>
-      </Helmet> */}
+    
+    <div className="App">
+      <Helmet>
+        <style>{"body { background-color: " + backGround + "; }"}</style>
+      </Helmet>
+     
       {/* Top part */}
       <div className='top-bar' style={{
         background: toggleDarkSecondary ? secondaryDark : secondaryWhite

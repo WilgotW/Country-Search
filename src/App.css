@@ -4,7 +4,6 @@ body{
 }
 .App{
     margin: 0;
-    background: hsl(207, 26%, 17%);
     color: hsl(0, 0%, 100%);
     font-family: 'Roboto', sans-serif;
     transition: 0.3s;
