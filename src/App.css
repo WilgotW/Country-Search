@@ -169,7 +169,8 @@ body{
     /* margin-left: 2rem; */
 }
 .continent:hover{
-    background: hsl(209, 23%, 28%);
+    background: hsla(209, 23%, 28%, 0.2);
+    filter: brightness(1.2);
 }
 
 .right-side{

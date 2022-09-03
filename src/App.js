@@ -51,10 +51,10 @@ function App() {
     getData();
   }, []);
   
-  // useEffect(() => {
-  //   console.log(allCountries)
-  //   console.log(countries);
-  // }, [allCountries], [countries]);
+  useEffect(() => {
+    console.log(allCountries)
+    console.log(countries);
+  }, [allCountries], [countries]);
 
   useEffect(() => {
     searchForCountry() 
@@ -137,7 +137,11 @@ function App() {
         
       </div>
       <div className='positioning-right'>
-        <div className='options' style={{opacity: showDropDown ? '100' : '0'}}>
+        <div className='options' style={{
+          opacity: showDropDown ? '100' : '0',
+          background: toggleDarkSecondary ? secondaryDark : secondaryWhite,
+          color: toggleDarkText ? textDarkMode : textWhiteMode
+        }}>
           <div className='continent'onClick={() => {
             dropDownToggle()
             selectContinent("")}}><p className='con'>All</p></div>

@@ -19,7 +19,9 @@ function Item({countries, toggleDarkSec, toggleDarkTex, secDark, textDarkMode, s
             Population: {numberWithCommas(country.population)} <br />
             Capital: {country.capital} <br />
             Area: {numberWithCommas(country.area)} km²<br /> 
-            <a href={country.maps.googleMaps} className="google-link">location</a>
+            <a href={country.maps.googleMaps} className="google-link" style={{
+              color: toggleDarkTex ? textDarkMode : textWhiteMode
+            }}>location</a>
             
           </p>
         </div>
