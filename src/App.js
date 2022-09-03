@@ -71,7 +71,7 @@ function App() {
     console.log("Searching for: " + search + " in " + continentFilter);
   
     let newArr = [...all]
-    
+    //test
     let filteredCountries = newArr.filter(country => { 
       if(continentFilter !== ""){
         console.log(country.region[0])

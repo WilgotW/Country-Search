@@ -44,11 +44,11 @@ body{
 }
 @media only screen and (max-width: 580px){
 	.country-list{
-        grid-template-columns: repeat(1, 1fr);
         display: flex;
         justify-content: center;
         flex-direction: column;
     }
+    
 }
 .App{
     margin: 0;
@@ -78,8 +78,8 @@ body{
 .title{
     margin: 40px;
     float: left;
-    font-size: 25px;
     font-weight: 500;
+    font-size: 20px;
 }
 .theme-switch{
     margin: 40px;
