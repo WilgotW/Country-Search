@@ -2,6 +2,54 @@ body{
     margin: 0;
     background: hsl(207, 26%, 17%);
 }
+@media only screen and (max-width: 5000px){
+    .country-list{
+        grid-template-columns: repeat(5, 1fr);
+        display: grid;
+    }
+    .middle-bar{
+        flex-direction: row;
+    }
+    .positioning-right{
+        margin-right: 40px;
+        justify-content: right;
+    }
+    .region-selector{
+        margin-right: 40px;
+    }
+}
+@media only screen and (max-width: 1600px){
+    .country-list{
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+@media only screen and (max-width: 1180px){
+	.country-list{
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+@media only screen and (max-width: 900px){
+	.country-list{
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .middle-bar{
+        flex-direction: column;
+    }
+    .positioning-right{
+        margin-top: 140px;
+        margin-bottom: 10px;
+        justify-content: center;
+    }
+    
+}
+@media only screen and (max-width: 580px){
+	.country-list{
+        grid-template-columns: repeat(1, 1fr);
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+}
 .App{
     margin: 0;
     color: hsl(0, 0%, 100%);
@@ -151,9 +199,7 @@ body{
     cursor: pointer;
 }
 .positioning-right{
-    margin-right: 40px;
     display: flex;
-    justify-content: right;
     align-items: center;
 }
 .con{
@@ -165,7 +211,7 @@ body{
     height: 30px;
     display: flex;
     align-items: center;
-    /* margin-left: 2rem; */
+    
 }
 .continent:hover{
     background: hsla(209, 23%, 28%, 0.2);
@@ -192,8 +238,6 @@ body{
 }
 .country-list{
     width: fit-content;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
     gap: 50px;
 }
 .item{
