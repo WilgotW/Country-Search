@@ -66,9 +66,10 @@ function App() {
     console.log("Searching for: " + search + " in " + continentFilter);
   
     let newArr = [...all]
-
+    
     let filteredCountries = newArr.filter(country => { 
       if(continentFilter !== ""){
+        console.log(country.region[0])
         return country.name.common.includes(search) && country.region == continentFilter; 
       }else{
         return country.name.common.includes(search)
@@ -152,9 +153,7 @@ function App() {
           <div className='continent'onClick={() => {dropDownToggle() 
             selectContinent("Africa")}}><p className='con'>Africa</p></div>
           <div className='continent'onClick={() => {dropDownToggle()
-            selectContinent("North America")}}><p className='con'>North America</p></div>
-          <div className='continent'onClick={() => {dropDownToggle() 
-            selectContinent("South America")}}><p className='con'>South America</p></div>
+            selectContinent("Americas")}}><p className='con'>Americas</p></div>
           <div className='continent'onClick={() => {dropDownToggle() 
             selectContinent("Oceania")}}><p className='con'>Oceania</p></div>
         </div>
