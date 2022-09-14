@@ -65,7 +65,6 @@ function App() {
   }, [continentFilter])
 
   const searchForCountry = () => {
-    
     let all = allCountries;
     setCountries(all);
     console.log("Searching for: " + search + " in " + continentFilter);

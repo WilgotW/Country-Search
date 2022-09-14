@@ -3,6 +3,9 @@ body{
     background: hsl(207, 26%, 17%);
 }
 @media only screen and (max-width: 5000px){
+    .title{
+        font-size: 20px;
+    }
     .country-list{
         grid-template-columns: repeat(5, 1fr);
         display: grid;
@@ -40,6 +43,9 @@ body{
         margin-bottom: 10px;
         justify-content: center;
     }
+    .title{
+        font-size: 15px;
+    }
     
 }
 @media only screen and (max-width: 580px){
@@ -47,6 +53,10 @@ body{
         display: flex;
         justify-content: center;
         flex-direction: column;
+    }
+    .title{
+        color: orange;
+        font-size: 10px;
     }
     
 }
@@ -79,7 +89,7 @@ body{
     margin: 40px;
     float: left;
     font-weight: 500;
-    font-size: 20px;
+    width: 100%;
 }
 .theme-switch{
     margin: 40px;
